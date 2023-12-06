@@ -109,7 +109,7 @@ const Filter = () => {
                         <p>Ovqat nomi: {t.title}</p>
                         <p>Porsi: {t.description}</p>
                         <p className="">Telefon raqami: {t.telefon}</p>
-                        <p className="">Ismi familiya: {t.adress}</p>
+                        <p className="">Manzili: {t.adress}</p>
                         <p className="">Ovqat narxi: {t.price}</p>
                       </div>
                       <div className="flex gap-2 items-center">
