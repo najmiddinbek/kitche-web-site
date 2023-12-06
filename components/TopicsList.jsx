@@ -115,8 +115,8 @@ const Filter = () => {
                       <div className="flex gap-2 items-center">
                         <RemoveBtn id={t._id} />
                         <button onClick={() => changeStatus(t._id)} className={`py-2 px-2 ${t.isChecked
-                          ? "text-white bg-green-800  rounded-md cursor-pointer"
-                          : "  text-white bg-red-500 rounded-md cursor-pointer"
+                          ? " text-white bg-red-500 rounded-md cursor-pointer"
+                          : " text-white bg-green-800  rounded-md cursor-pointer "
                           }`}>
                           {t.isChecked ? "Buyurtma tugatilmadi" : "Buyurtma tugatildi"}
                         </button>
