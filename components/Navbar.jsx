@@ -4,7 +4,7 @@ import React from 'react'
 export default function Navbar() {
   return (
     <div>
-      <Link href={"/qoshish"}>Admin</Link>
+      <Link className='text-3xl text-white' href={"/qoshish"}>Admin</Link>
     </div>
   )
 }

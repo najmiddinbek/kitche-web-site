@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from "react";
 import RemoveBtn from "./RemoveBtn";
 import { useRouter } from "next/navigation";
+import 'bootstrap/dist/css/bootstrap.css'
+// own css files here
+// import "../css/customcss.css";
 
 
 const Filter = () => {
@@ -95,39 +98,50 @@ const Filter = () => {
     <>
       <div className="min-h-screen">
         <div className="container">
-          {Object.keys(usersAddedByDate)
-            .reverse()
-            .map((date) => (
-              <div key={date}>
-                {usersAddedByDate[date]
-                  .filter((t) =>
-                    filterStatus === null ? true : t.isChecked === filterStatus
-                  )
-                  .map((t, index) => (
-                    <div key={t.id} data-aos-duration="1000" data-aos="fade-up" className="blur2 mb-2 w-full px-3 py-2 block md:flex card_main justify-between border rounded-md text-black">
-                      <div>
-                        <p>Ovqat nomi: {t.title}</p>
-                        <p>Porsi: {t.description}</p>
-                        <p className="">Telefon raqami: {t.telefon}</p>
-                        <p className="">Manzili: {t.adress}</p>
-                        <p className="">Ovqat narxi: {t.price}</p>
-                      </div>
-                      <div className="flex gap-2 items-center">
-                        <RemoveBtn id={t._id} />
-                        <button onClick={() => changeStatus(t._id)} className={`py-2 px-2 ${t.isChecked
-                          ? " text-white bg-red-500 rounded-md cursor-pointer"
-                          : " text-white bg-green-800  rounded-md cursor-pointer "
-                          }`}>
-                          {t.isChecked ? "Buyurtma tugatilmadi" : "Buyurtma tugatildi"}
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            ))
-          }
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="py-4 px-3 text-[17px] uppercase">№</th>
+                <th className="py-4 px-3 text-[17px] uppercase">Ovqat nomi</th>
+                <th className="py-4 px-3 text-[17px] uppercase">Porsi</th>
+                <th className="py-4 px-3 text-[17px] uppercase">Telefon raqami</th>
+                <th className="py-4 px-3 text-[17px] uppercase">Manzili</th>
+                <th className="py-4 px-3 text-[17px] uppercase">Jami narxi</th>
+                <th className="py-4 px-3 text-[17px] uppercase"></th>
+                <th className="py-4 px-3 text-[17px] uppercase"></th>
+              </tr>
+            </thead>
+            <tbody className="text-center">
+              {Object.keys(usersAddedByDate)
+                .reverse()
+                .map((date) => (
+                  usersAddedByDate[date]
+                    .filter((t) => (filterStatus === null ? true : t.isChecked === filterStatus))
+                    .map((t, index) => (
+                      <tr key={t._id}>
+                        <td>{index + 1}</td>
+                        <td>{t.title}</td>
+                        <td>{t.description}</td>
+                        <td>{t.telefon}</td>
+                        <td>{t.adress}</td>
+                        <td>{t.price}</td>
+                        <td><RemoveBtn id={t._id} /></td>
+                        <td>
+                          <button onClick={() => changeStatus(t._id)} className={`py-2 px-2 ${t.isChecked
+                            ? " text-white bg-red-500 rounded-md cursor-pointer"
+                            : " text-white bg-green-800  rounded-md cursor-pointer "
+                            }`}>
+                            {t.isChecked ? "Buyurtma tugatilmadi" : "Buyurtma tugatildi"}
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                ))}
+            </tbody>
+          </table>
         </div>
-      </div >
+      </div>
+
     </>
   );
 

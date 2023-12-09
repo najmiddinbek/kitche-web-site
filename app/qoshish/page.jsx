@@ -88,40 +88,42 @@ export default function AddTopic() {
 
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+    <div className="min-h-screen">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
 
-      <select className="border border-slate-800 py-2 px-3" onChange={(e) => setTitle(e.target.value)} value={title}>
-        <option>Tanlang</option>
-        {taomlar.map((ovqat, id) => (
-          <option key={id}>{ovqat.taom}</option>
-        ))}
+        <select className="border border-slate-800 py-2 px-3" onChange={(e) => setTitle(e.target.value)} value={title}>
+          <option>Tanlang</option>
+          {taomlar.map((ovqat, id) => (
+            <option key={id}>{ovqat.taom}</option>
+          ))}
 
-      </select>
-
-
-
-      <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDescription(e.target.value)}>
-        <option>Tanlang</option>
-        <option>1-pors</option>
-        <option>2-pors</option>
-        <option>3-pors</option>
-      </select>
-
-      <input onChange={(e) => setAdress(e.target.value)} value={adress} className="border border-slate-500 px-8 py-2" type="text"
-        placeholder="Manzili" />
-      <input onChange={(e) => setTelefon(e.target.value)} value={telefon} className="border border-slate-500 px-8 py-2" type="text"
-        placeholder="Telefon raqam" />
-
-      <select className="border border-slate-600 py-2 px-3" onChange={(e) => setPrice(e.target.value)} value={price}>
-        <option>Tanlang</option>
-        <option>{timeValue} so`m</option>
-      </select>
+        </select>
 
 
 
-      <button type="submit" className="bg-green-800 py-2 px-4 rounded-md cursor-pointer text-white">
-        Qo`shish
-      </button>
-    </form>
+        <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDescription(e.target.value)}>
+          <option>Tanlang</option>
+          <option>1-pors</option>
+          <option>2-pors</option>
+          <option>3-pors</option>
+        </select>
+
+        <input onChange={(e) => setAdress(e.target.value)} value={adress} className="border border-slate-500 px-8 py-2" type="text"
+          placeholder="Manzili" />
+        <input onChange={(e) => setTelefon(e.target.value)} value={telefon} className="border border-slate-500 px-8 py-2" type="text"
+          placeholder="Telefon raqam" />
+
+        <select className="border border-slate-600 py-2 px-3" onChange={(e) => setPrice(e.target.value)} value={price}>
+          <option>Tanlang</option>
+          <option>{timeValue} so`m</option>
+        </select>
+
+
+
+        <button type="submit" className="bg-green-800 py-2 px-4 rounded-md cursor-pointer text-white">
+          Qo`shish
+        </button>
+      </form>
+    </div>
   );
 }
