@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Image from "next/image";
-import Logo from "../public/photo_2023-12-09_08-24-36.jpg"
+import Logo from "../public/Remove-bg.ai_1702092397401.png"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
         <div className="div">
           <div className="max-w-screen-2xl mx-auto p-4">
             <div className="flex justify-center">
-              <Image src={Logo} alt="Image" width={200} height={100} />
+              <div className="flex justify-center bg-white w-2/12 rounded-full">
+                <Image src={Logo} alt="Image" width={250} height={100} />
+              </div>
             </div>
             <Navbar />
             <div className="mt-8">{children}</div>
