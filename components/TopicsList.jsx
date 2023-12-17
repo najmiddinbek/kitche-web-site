@@ -119,18 +119,18 @@ const Filter = () => {
                     .filter((t) => (filterStatus === null ? true : t.isChecked === filterStatus))
                     .map((t, index) => (
                       <tr key={t._id}>
-                        <td>{index + 1}</td>
+                        <td>1: {index + 1}</td>
                         <td>{t.title}</td>
                         <td>{t.description}</td>
                         <td>{t.telefon}</td>
                         <td>{t.adress}</td>
                         <td>{t.price}</td>
-                        <td>{t.secondTitle}</td>
+                        <td>{t.drink}</td>
+                        <td>2: {t.secondTitle}</td>
                         <td>{t.secondPrice}</td>
                         <td>{t.secondDescription}</td>
                         <td>{t.secondAdress}</td>
                         <td>{t.secondTelefon}</td>
-                        <td>{t.drink}</td>
                         <td>{t.drink2}</td>
 
                         <td><RemoveBtn id={t._id} /></td>
