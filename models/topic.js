@@ -8,6 +8,11 @@ const topicSchema = new Schema(
     adress: String,
     isChecked: { type: Boolean, default: true },
     price: String,
+    secondTitle: String,
+    secondPrice: String,
+    secondDescription: String,
+    secondAdress: String,
+    secondTelefon: String,
   },
   {
     timestamps: true,

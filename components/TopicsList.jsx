@@ -125,6 +125,7 @@ const Filter = () => {
                         <td>{t.telefon}</td>
                         <td>{t.adress}</td>
                         <td>{t.price}</td>
+
                         <td><RemoveBtn id={t._id} /></td>
                         <td>
                           <button onClick={() => changeStatus(t._id)} className={`py-2 px-2 ${t.isChecked
