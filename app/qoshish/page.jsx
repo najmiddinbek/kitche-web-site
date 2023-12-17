@@ -15,6 +15,8 @@ export default function AddTopic() {
   const [secondDescription, setSecondDescription] = useState("");
   const [secondAdress, setSecondAdress] = useState("");
   const [secondTelefon, setSecondTelefon] = useState("");
+  const [drink, setDrink] = useState("");
+  const [drink2, setDrink2] = useState("");
 
   const [open, setOpen] = useState(false);
 
@@ -41,7 +43,7 @@ export default function AddTopic() {
         headers: {
           "Content-type": "application/json",
         },
-        body: JSON.stringify({ title, description, adress, telefon, price, secondTitle, secondPrice, secondDescription, secondAdress, secondTelefon }),
+        body: JSON.stringify({ title, description, adress, drink, drink2, telefon, price, secondTitle, secondPrice, secondDescription, secondAdress, secondTelefon }),
       });
 
       if (res.ok) {
@@ -155,7 +157,6 @@ export default function AddTopic() {
         </select>
 
 
-
         <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDescription(e.target.value)}>
           <option>Tanlang</option>
           <option>1-pors</option>
@@ -163,10 +164,24 @@ export default function AddTopic() {
           <option>3-pors</option>
         </select>
 
+
         <input onChange={(e) => setAdress(e.target.value)} value={adress} className="border border-slate-500 px-8 py-2" type="text"
           placeholder="Manzili" />
+
+
         <input onChange={(e) => setTelefon(e.target.value)} value={telefon} className="border border-slate-500 px-8 py-2" type="text"
           placeholder="Telefon raqam" />
+
+        <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDrink(e.target.value)} value={drink}>
+          <option>Tanlang</option>
+          <option>0.5 fanta</option>
+          <option>1 litr fanta</option>
+          <option>1.5 litr fanta</option>
+          <option>0.5 kola</option>
+          <option>1 litr kola</option>
+          <option>1.5 kola</option>
+        </select>
+
 
         <select className="border border-slate-600 py-2 px-3" onChange={(e) => setPrice(e.target.value)} value={price}>
           <option>Tanlang</option>
@@ -187,7 +202,6 @@ export default function AddTopic() {
 
         {open ? (
           <>
-
             <select className="border border-slate-800 py-2 px-3" onChange={(e) => setSecondTitle(e.target.value)} value={secondTitle}>
               <option>Tanlang</option>
               {taomlar2.map((ovqat, id) => (
@@ -197,7 +211,6 @@ export default function AddTopic() {
             </select>
 
 
-
             <select className="border border-slate-800 py-2 px-3" onChange={(e) => setSecondDescription(e.target.value)} value={secondDescription}>
               <option>Tanlang</option>
               <option>1-pors</option>
@@ -205,10 +218,22 @@ export default function AddTopic() {
               <option>3-pors</option>
             </select>
 
+
             <input onChange={(e) => setSecondAdress(e.target.value)} value={secondAdress} className="border border-slate-500 px-8 py-2" type="text"
               placeholder="Manzili" />
             <input onChange={(e) => setSecondTelefon(e.target.value)} value={secondTelefon} className="border border-slate-500 px-8 py-2" type="text"
               placeholder="Telefon raqam" />
+
+            <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDrink2(e.target.value)} value={drink2}>
+              <option>Tanlang</option>
+              <option>0.5 fanta</option>
+              <option>1 litr fanta</option>
+              <option>1.5 litr fanta</option>
+              <option>0.5 kola</option>
+              <option>1 litr kola</option>
+              <option>1.5 kola</option>
+            </select>
+
 
             <select className="border border-slate-600 py-2 px-3" onChange={(e) => setSecondPrice(e.target.value)} value={secondPrice}>
               <option>Tanlang</option>

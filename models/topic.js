@@ -13,6 +13,8 @@ const topicSchema = new Schema(
     secondDescription: String,
     secondAdress: String,
     secondTelefon: String,
+    drink: String,
+    drink2: String,
   },
   {
     timestamps: true,
