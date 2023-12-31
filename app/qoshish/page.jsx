@@ -103,8 +103,69 @@ export default function AddTopic() {
     },
   ]
 
+
+  const ichimliklar = [
+    {
+      id: 1,
+      nomi: 'Fanta 0.5',
+      olchami: '0.5',
+      narxi: '6000'
+    },
+    {
+      id: 2,
+      nomi: 'Fanta 1.0',
+      olchami: '1.0',
+      narxi: '10000'
+    },
+    {
+      id: 3,
+      nomi: 'Fanta 1.5',
+      olchami: '1.5',
+      narxi: '14000'
+    },
+    {
+      id: 4,
+      nomi: 'Cola 0.5',
+      olchami: '0.5',
+      narxi: '6000'
+    },
+    {
+      id: 5,
+      nomi: 'Cola 1.0',
+      olchami: '1.0',
+      narxi: '10000'
+    },
+    {
+      id: 6,
+      nomi: 'Cola 1.5',
+      olchami: '1.5',
+      narxi: '14000'
+    }
+  ]
+
   const [timeValue, setTimeValue] = useState(0);
   const [timeValue1, setTimeValue2] = useState(0);
+
+  const [drinkPrice, setDrinkPrice] = useState(0);
+  const [secondDrinkPrice, setSecondDrinkPrice] = useState(0);
+
+  useEffect(() => {
+    const selectedDrink = ichimliklar.find((item) => item.nomi === drink);
+    if (selectedDrink) {
+      setDrinkPrice(selectedDrink.narxi);
+    } else {
+      setDrinkPrice(0);
+    }
+  }, [drink]);
+
+  useEffect(() => {
+    const selectedDrink2 = ichimliklar.find((drink) => drink.nomi === drink2);
+    if (selectedDrink2) {
+      setSecondDrinkPrice(selectedDrink2.narxi);
+    } else {
+      setSecondDrinkPrice(0);
+    }
+  }, [drink2]);
 
   useEffect(() => {
     const selectedFood = taomlar.find((food) => food.taom === title);
@@ -174,19 +235,20 @@ export default function AddTopic() {
 
         <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDrink(e.target.value)} value={drink}>
           <option>Tanlang</option>
-          <option>0.5 fanta</option>
-          <option>1 litr fanta</option>
-          <option>1.5 litr fanta</option>
-          <option>0.5 kola</option>
-          <option>1 litr kola</option>
-          <option>1.5 kola</option>
+          <option>Fanta 0.5</option>
+          <option>Fanta 1.0</option>
+          <option>Fanta 1.5</option>
+          <option>Cola 0.5</option>
+          <option>Cola 1.0</option>
+          <option>Cola 1.5</option>
         </select>
 
 
         <select className="border border-slate-600 py-2 px-3" onChange={(e) => setPrice(e.target.value)} value={price}>
           <option>Tanlang</option>
-          <option>{timeValue} so`m</option>
+          <option>{parseInt(timeValue) + parseInt(drinkPrice)} so`m</option>
         </select>
+
 
 
 
@@ -226,19 +288,20 @@ export default function AddTopic() {
 
             <select className="border border-slate-800 py-2 px-3" onChange={(e) => setDrink2(e.target.value)} value={drink2}>
               <option>Tanlang</option>
-              <option>0.5 fanta</option>
-              <option>1 litr fanta</option>
-              <option>1.5 litr fanta</option>
-              <option>0.5 kola</option>
-              <option>1 litr kola</option>
-              <option>1.5 kola</option>
+              <option>Fanta 0.5</option>
+              <option>Fanta 1.0</option>
+              <option>Fanta 1.5</option>
+              <option>Cola 0.5</option>
+              <option>Cola 1.0</option>
+              <option>Cola 1.5</option>
             </select>
 
 
-            <select className="border border-slate-600 py-2 px-3" onChange={(e) => setSecondPrice(e.target.value)} value={secondPrice}>
+            <select className="border border-slate-600 py-2 px-3" onChange={(e) => setPrice(e.target.value)} value={price}>
               <option>Tanlang</option>
-              <option>{timeValue1} so`m</option>
+              <option>{parseInt(timeValue1) + parseInt(secondDrinkPrice)} so`m</option>
             </select>
+
 
 
 
